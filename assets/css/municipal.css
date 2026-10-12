@@ -1,0 +1,2242 @@
+/* ─── Municipal Dashboard Page ─── */
+
+/* Main layout wrapper */
+main.municipal-dashboard {
+  grid-column: 2;
+  background: #f1f5f9;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+}
+
+/* Page header row */
+.municipal-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.municipal-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.municipal-welcome-message {
+  font-size: 13px;
+  color: #8899b3;
+  margin-top: 2px;
+}
+
+/* Welcome banner */
+.municipal-welcome-banner {
+  background: linear-gradient(180deg, #1e3c72 0%, #152a54 100%);
+  border-radius: 14px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(30, 60, 114, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.municipal-welcome-banner::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.municipal-welcome-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: 120px;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.municipal-welcome-banner-text h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.municipal-welcome-banner-text p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Stat cards grid */
+.municipal-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Individual stat card */
+.municipal-stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e8edf5;
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.municipal-stat-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.municipal-stat-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+.municipal-stat-card-link:focus-visible .municipal-stat-card {
+  outline: 2px solid #1e3c72;
+  outline-offset: 2px;
+}
+
+.municipal-stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+}
+
+.municipal-stat-content {
+  flex: 1;
+}
+
+.municipal-stat-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 6px 0;
+}
+
+.municipal-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.municipal-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.municipal-stat-icon-barangays {
+  background: #eef2ff;
+  color: #4338ca;
+}
+.municipal-stat-icon-workers {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.municipal-stat-icon-residents {
+  background: #f0fdfd;
+  color: #0cb4b4;
+}
+.municipal-stat-icon-new {
+  background: #fffbeb;
+  color: #f79009;
+}
+
+.municipal-stat-divider {
+  height: 1px;
+  background: #f0f2f8;
+  margin: 0 20px;
+}
+
+.municipal-stat-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.municipal-stat-footer-muted {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Dashboard grid rows */
+.municipal-dashboard-row-overview,
+.municipal-dashboard-row-records,
+.municipal-dashboard-row-bmi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.municipal-dashboard-row-weekly {
+  margin-bottom: 16px;
+}
+
+/* Chart card */
+.municipal-chart-card {
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+
+/* ── Section Header: border divider under title/badge row ── */
+.municipal-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f2f5;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.municipal-section-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0 0 3px 0;
+}
+
+.municipal-section-subtitle {
+  font-size: 12px;
+  color: #8899b3;
+  margin: 0;
+}
+
+.municipal-analytics-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #eff6ff;
+  color: #2563eb;
+  white-space: nowrap;
+}
+
+.municipal-analytics-badge.green {
+  background: #ecfdf5;
+  color: #059669;
+}
+.municipal-analytics-badge.amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.municipal-chart-box {
+  position: relative;
+  height: 260px;
+}
+
+.municipal-chart-box-lg {
+  height: 300px;
+}
+
+/* Fix: give analytics chart boxes a height so Chart.js can render */
+.municipal-analytics-page .municipal-chart-box {
+  position: relative;
+  height: 280px;
+}
+.municipal-analytics-page .municipal-chart-box-lg {
+  height: 320px;
+}
+
+/* Status pill grid (barangay status / gender) */
+.municipal-status-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.municipal-status-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #f8faff;
+  border: 1px solid #eef1f7;
+}
+
+.municipal-status-pill .sp-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1f36;
+}
+
+.municipal-status-pill .sp-sub {
+  font-size: 11px;
+  color: #8899b3;
+}
+
+.municipal-status-pill .sp-count {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1f36;
+}
+
+/* Inner table wrap (Records per Barangay) */
+.municipal-dash-inner-table-wrap {
+  overflow-x: auto;
+}
+
+.municipal-dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.municipal-dash-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #8899b3;
+  border-bottom: 1px solid #eef1f7;
+  white-space: nowrap;
+}
+
+.municipal-dash-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f2f8;
+  vertical-align: middle;
+  color: #2d3a4a;
+}
+
+.municipal-dash-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.municipal-dash-table tbody tr:hover {
+  background: #f8faff;
+}
+
+.municipal-dash-td-num {
+  font-weight: 600;
+  color: #1a1f36;
+}
+
+.municipal-dash-cell-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1f36;
+}
+
+.municipal-dash-cell-sub {
+  font-size: 11px;
+  color: #8899b3;
+}
+
+.municipal-table-barangay-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.municipal-table-barangay-avatar-initials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #eef2ff;
+  border: 2px solid #c7d2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4338ca;
+  flex-shrink: 0;
+}
+
+.municipal-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.municipal-badge-active {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.municipal-badge-inactive {
+  background: #fef2f2;
+  color: #7f1d1d;
+  border: 1px solid #fecaca;
+}
+
+.municipal-dash-td-empty {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.municipal-dash-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #8899b3;
+}
+
+.municipal-dash-empty-icon {
+  font-size: 2rem;
+}
+.municipal-dash-empty-text {
+  font-size: 13px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1100px) {
+  .municipal-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .municipal-dashboard-row-overview,
+  .municipal-dashboard-row-records,
+  .municipal-dashboard-row-bmi {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  main.municipal-dashboard {
+    padding: 1rem;
+  }
+
+  .municipal-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .municipal-welcome-banner {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .municipal-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Municipal Shared Components ─── */
+
+/* ─── Shared: Alert Messages ─── */
+
+.municipal-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.municipal-alert i {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.municipal-alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.municipal-alert-error {
+  background: #fef2f2;
+  color: #7f1d1d;
+  border: 1px solid #fca5a5;
+}
+
+/* ─── Shared: Card Component ─── */
+
+.municipal-card {
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.municipal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 28px;
+  background: #1e3c72;
+  border-bottom: 1px solid #e8edf5;
+}
+
+.municipal-card-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.municipal-card-header-text {
+  flex: 1;
+}
+
+.municipal-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.municipal-card-subtitle {
+  font-size: 12.5px;
+  color: #dce2f0;
+}
+
+/* ─── Shared: Form Components ─── */
+
+.municipal-form {
+  padding: 28px;
+}
+
+.municipal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+  margin-bottom: 4px;
+}
+
+.municipal-form-group-full {
+  grid-column: 1 / -1;
+}
+
+.municipal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.municipal-form-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #4b5c6b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.municipal-form-required {
+  color: #f04438;
+  margin-left: 2px;
+}
+
+.municipal-form-input {
+  height: 40px;
+  padding: 0 12px;
+  border: 1.5px solid #e2eaf0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 13.5px;
+  color: #0d1b2a;
+  transition: all 0.2s;
+  outline: none;
+  width: 100%;
+  appearance: none;
+}
+
+.municipal-form-input::placeholder {
+  color: #8fa0b0;
+  font-size: 13px;
+}
+.municipal-form-input:hover:not(:focus) {
+  border-color: #ccd7e2;
+}
+
+.municipal-form-input:focus {
+  border-color: #1e3c72;
+  box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+  background: #fff;
+}
+
+.municipal-form-hint {
+  font-size: 11.5px;
+  color: #8fa0b0;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.municipal-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  margin-top: 28px;
+  border-top: 1px solid #e8edf5;
+  background: #f7fafc;
+  border-radius: 0 0 14px 14px;
+}
+
+.municipal-form-required-note {
+  font-size: 12px;
+  color: #8fa0b0;
+}
+
+/* ─── Shared: Buttons ─── */
+
+.municipal-btn {
+  height: 38px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.municipal-btn-submit {
+  background: #1e3c72;
+  color: #ffffff;
+}
+
+.municipal-btn-submit:hover {
+  background: #152a54;
+  transform: translateY(-1px);
+}
+
+.municipal-btn-submit:active {
+  transform: translateY(0);
+}
+
+.municipal-btn-deactivate {
+  background: #f8fafc;
+  color: #94a3b8;
+  border: 1.5px solid #e2e8f0;
+  padding: 0 10px;
+  height: 32px;
+  font-size: 12.5px;
+}
+.municipal-btn-deactivate:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+.municipal-btn-activate {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1.5px solid #bbf7d0;
+  padding: 0 10px;
+  height: 32px;
+  font-size: 12.5px;
+}
+.municipal-btn-activate:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+/* ─── Shared: Table Components ─── */
+
+.municipal-table-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.municipal-filter-count {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+  background: #f1f5f9;
+  border: 1px solid #e2eaf0;
+  border-radius: 20px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+.municipal-table-wrapper {
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+.municipal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  color: #0d1b2a;
+}
+
+.municipal-table-head th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #1e3c72;
+  border-bottom: 1px solid #e8edf5;
+  white-space: nowrap;
+}
+
+.municipal-table-head th:first-child {
+  border-radius: 14px 0 0 0;
+}
+.municipal-table-head th:last-child {
+  border-radius: 0 14px 0 0;
+}
+
+.municipal-table-body tr {
+  border-bottom: 1px solid #f0f4f8;
+  transition: background 0.15s;
+}
+
+.municipal-table-body tr:last-child {
+  border-bottom: none;
+}
+.municipal-table-body tr:hover {
+  background: #f7fafc;
+}
+
+.municipal-table-body td {
+  padding: 12px 16px;
+  vertical-align: middle;
+  color: #2d3a4a;
+}
+
+/* ─── Shared: Badge ─── */
+
+.municipal-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.municipal-badge-active {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.municipal-badge-inactive {
+  background: #fef2f2;
+  color: #7f1d1d;
+  border: 1px solid #fecaca;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .municipal-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .municipal-form-group-full {
+    grid-column: 1;
+  }
+
+  .municipal-form-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .municipal-table-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ─── Shared: Field Error ─── */
+
+.municipal-field-error {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: #f04438;
+  margin-top: 5px;
+}
+
+.municipal-field-error.show {
+  display: flex;
+}
+.municipal-warn-icon {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.municipal-err-text {
+  line-height: 1.4;
+}
+
+.municipal-form-input.input-invalid {
+  border-color: #f04438;
+  background-color: #fff5f5;
+}
+.municipal-form-input.input-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(240, 68, 56, 0.1);
+}
+
+.select-invalid {
+  border-color: #f04438 !important;
+}
+
+/* ─── Shared: Custom Dropdown (Barangay Selector) ─── */
+
+.municipal-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.municipal-dropdown-toggle {
+  height: 40px;
+  width: 100%;
+  padding: 0 36px 0 12px;
+  border: 1.5px solid #e2eaf0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 13.5px;
+  color: #0d1b2a;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.municipal-dropdown-toggle:hover:not(:disabled) {
+  border-color: #ccd7e2;
+}
+
+.municipal-dropdown-toggle:disabled {
+  background: #f7fafc;
+  cursor: not-allowed;
+  color: #b3bfcc;
+}
+
+.municipal-dropdown.open .municipal-dropdown-toggle {
+  border-color: #1e3c72;
+  box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+}
+
+.municipal-dropdown-toggle-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #8fa0b0;
+}
+
+.municipal-dropdown-toggle-text.has-value {
+  color: #0d1b2a;
+}
+
+.municipal-dropdown-arrow {
+  font-size: 11px;
+  color: #8fa0b0;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+  pointer-events: none;
+}
+
+.municipal-dropdown.open .municipal-dropdown-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.municipal-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1.5px solid #e2eaf0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+}
+
+.municipal-dropdown.open .municipal-dropdown-menu {
+  display: block;
+}
+
+.municipal-dropdown-item {
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: #0d1b2a;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.municipal-dropdown-item:hover,
+.municipal-dropdown-item.highlighted {
+  background: #eff6ff;
+  color: #1e3c72;
+}
+
+.municipal-dropdown-item.selected {
+  background: #1e3c72;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.municipal-dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+.municipal-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+.municipal-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.municipal-dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.municipal-dropdown.select-invalid .municipal-dropdown-toggle {
+  border-color: #f04438;
+}
+
+/* ── Barangay Toggle Status Buttons ── */
+.municipal-btn-activate {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1.5px solid #bbf7d0;
+  padding: 0 10px;
+}
+.municipal-btn-activate:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #15803d;
+}
+.municipal-btn-deactivate {
+  background: #f8fafc;
+  color: #94a3b8;
+  border: 1.5px solid #e2e8f0;
+  padding: 0 10px;
+}
+.municipal-btn-deactivate:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+/* ─── Page: Cross-Barangay Analytics (cross_barangay_analytics.php) ─── */
+
+.municipal-analytics-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 32px 0 16px;
+}
+
+.municipal-analytics-section-title:first-of-type {
+  margin-top: 0;
+}
+
+/* ── Range Tabs ── */
+.municipal-range-tabs {
+  display: flex;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.municipal-range-tab {
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.municipal-range-tab:hover {
+  color: #1e3c72;
+  background: #ffffff;
+}
+
+.municipal-range-tab.active {
+  background: #1e3c72;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(30, 60, 114, 0.25);
+}
+
+/* ── Extra badge color: amber (for mid-risk %) ── */
+.municipal-badge-amber {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+/* ── Extra badge color: blue (for BHW role) ── */
+.municipal-badge-blue {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+/* ── Underreporting Alert Panel ── */
+.municipal-underreporting-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 2px;
+}
+
+.municipal-underreporting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #7f1d1d;
+}
+
+.municipal-underreporting-item i {
+  color: #dc2626;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── BMI by Age Group (demographic bars) ── */
+.municipal-demog-body {
+  padding: 4px 2px;
+}
+
+.municipal-age-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.municipal-age-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.municipal-age-bar-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.municipal-age-bar-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1f36;
+}
+
+.municipal-age-bar-count {
+  font-size: 11px;
+  font-weight: 400;
+  color: #8899b3;
+  margin-left: 4px;
+}
+
+.municipal-age-bar-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.municipal-age-bar-track {
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.municipal-age-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+.municipal-no-data-text {
+  font-size: 13px;
+  color: #8899b3;
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .municipal-page-header {
+    gap: 16px;
+  }
+
+  .municipal-range-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .municipal-analytics-section-title {
+    margin: 24px 0 12px;
+  }
+}
+
+/* Program Planning Page */
+
+/* Header Action Buttons */
+.municipal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Priority Hint Banner */
+.municipal-priority-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.municipal-priority-hint-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #fef3c7;
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.municipal-priority-hint-text {
+  font-size: 13px;
+  color: #78350f;
+  line-height: 1.5;
+}
+
+.municipal-priority-hint-text strong {
+  color: #92400e;
+}
+
+/* Textarea Input */
+.municipal-form-textarea {
+  height: auto;
+  padding: 10px 12px;
+  resize: vertical;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+/* Scope Toggle Radios */
+.municipal-scope-toggle {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.municipal-radio-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  color: #2d3a4a;
+  cursor: pointer;
+}
+
+.municipal-radio-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1e3c72;
+  cursor: pointer;
+}
+
+/* Barangay Tag Picker */
+.municipal-tag-picker {
+  position: relative;
+}
+
+.municipal-tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 6px;
+  min-height: 42px;
+  max-height: 88px;
+  overflow-y: auto;
+  padding: 6px 8px;
+  background: #ffffff;
+  border: 1.5px solid #e2eaf0;
+  border-radius: 8px;
+  cursor: text;
+}
+
+.municipal-tag-chips:focus-within {
+  border-color: #1e3c72;
+  box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+}
+
+.municipal-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #eef2ff;
+  color: #1e3c72;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 5px 4px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.municipal-tag-chip-remove {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 60, 114, 0.12);
+  color: #1e3c72;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.municipal-tag-chip-remove:hover {
+  background: rgba(30, 60, 114, 0.25);
+}
+
+.municipal-tag-input {
+  flex: 1;
+  min-width: 140px;
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  color: #0d1b2a;
+  padding: 4px;
+  background: transparent;
+}
+
+.municipal-tag-input::placeholder {
+  color: #8fa0b0;
+}
+
+/* Barangay search dropdown */
+.municipal-tag-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #ffffff;
+  border: 1.5px solid #e2eaf0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 60;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.municipal-tag-dropdown-item {
+  /* height: 40px; */
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: #0d1b2a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.municipal-tag-dropdown-item:hover {
+  background: #eff6ff;
+  color: #1e3c72;
+}
+
+.municipal-tag-dropdown-empty {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #8fa0b0;
+}
+
+/* Scrollbar styling — matches .municipal-dropdown-menu */
+.municipal-tag-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+.municipal-tag-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.municipal-tag-dropdown::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.municipal-tag-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Neutral Badge */
+.municipal-badge-neutral {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* Row Action Buttons */
+.municipal-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.municipal-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  transition: all 0.2s;
+}
+
+.municipal-icon-btn:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #1e3c72;
+}
+
+.municipal-icon-btn.btn-danger {
+  color: #f04438;
+  border-color: #fecaca;
+  background: #fff5f5;
+}
+
+.municipal-icon-btn.btn-danger:hover {
+  background: #fef2f2;
+  border-color: #f04438;
+  color: #dc2626;
+}
+
+/* Progress Bar (Program Table) */
+.municipal-progress-num {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1f36;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.municipal-progress-track {
+  height: 7px;
+  width: 100px;
+  background: #eef1f7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.municipal-progress-fill {
+  height: 100%;
+  background: #059669;
+  border-radius: 20px;
+}
+
+/* Update Progress Modal Rows */
+.municipal-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.municipal-progress-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.municipal-progress-row-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.municipal-progress-row-inputs .municipal-form-input {
+  max-width: 120px;
+}
+
+.municipal-progress-row-of {
+  font-size: 12.5px;
+  color: #8899b3;
+  white-space: nowrap;
+}
+
+/* Modal Overlay */
+.municipal-modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 27, 42, 0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Modal Box */
+.municipal-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Header */
+.municipal-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 24px;
+  background: #1e3c72;
+  flex-shrink: 0;
+}
+
+.municipal-modal-header-text {
+  flex: 1;
+}
+
+.municipal-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.municipal-modal-subtitle {
+  font-size: 12.5px;
+  color: #dce2f0;
+}
+
+/* Modal Close Button */
+.municipal-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.municipal-modal-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Modal Body */
+.municipal-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Form Inside Modal */
+.municipal-modal .municipal-form {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.municipal-modal .municipal-form-actions {
+  border-radius: 0;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .municipal-modal-body {
+    padding: 18px;
+  }
+
+  .municipal-modal-header {
+    padding: 16px 18px;
+  }
+}
+
+/* AI Generate Description */
+.municipal-description-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.municipal-btn-ai-generate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.municipal-btn-ai-generate:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.municipal-btn-ai-generate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── User Management Page: Filter Bar ─── */
+.municipal-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.municipal-filter-select {
+  width: auto;
+  min-width: 150px;
+}
+
+.municipal-filter-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .municipal-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .municipal-filter-select {
+    width: 100%;
+  }
+}
+
+/* ─── Filter Bar Icons ─── */
+.municipal-filter-select-wrap {
+  position: relative;
+}
+
+.municipal-filter-select-wrap .municipal-filter-select {
+  padding-right: 32px;
+}
+
+.municipal-filter-select-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #8fa0b0;
+  pointer-events: none;
+}
+
+.municipal-filter-search {
+  position: relative;
+}
+
+.municipal-filter-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #8fa0b0;
+  pointer-events: none;
+}
+
+.municipal-filter-search-input {
+  padding-left: 36px;
+}
+
+/* ─── Page: Profile Municipal (profile_municipal.php) ─── */
+
+.municipal-profile-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 32px;
+  border-bottom: 1px solid #eef1f7;
+  flex-wrap: wrap;
+}
+
+.municipal-profile-card-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #f8faff;
+  border: 3px solid #1f6bb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #1f6bb8;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(31, 107, 184, 0.2);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.municipal-profile-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.municipal-profile-card-icon-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.municipal-profile-card-icon:hover .municipal-profile-card-icon-overlay {
+  opacity: 1;
+}
+
+.municipal-profile-card-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.municipal-profile-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.municipal-profile-card-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1f6bb8;
+  margin: 0;
+}
+
+.municipal-profile-stats-row {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  background: #f8faff;
+  border: 1px solid #eef1f7;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.municipal-profile-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 24px;
+  gap: 3px;
+  min-width: 110px;
+}
+
+.municipal-profile-stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1f36;
+  white-space: nowrap;
+}
+
+.municipal-profile-stat-active {
+  color: #16a34a;
+}
+
+.municipal-profile-stat-label {
+  font-size: 11px;
+  color: #8899b3;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.municipal-profile-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: #e8edf5;
+  flex-shrink: 0;
+}
+
+/* Crop Modal */
+.crop-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.crop-modal-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+}
+.crop-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1a1a2e;
+}
+.crop-image-wrap {
+  max-height: 320px;
+  overflow: hidden;
+}
+.crop-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+.btn-crop-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #1f6bb8;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: 1.5px solid #bfdbfe;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-crop-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1f6bb8 0%, #2a80d6 100%);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(31, 107, 184, 0.25);
+  cursor: pointer;
+}
+
+.btn-crop-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(31, 107, 184, 0.15);
+  color: #1f6bb8;
+}
+.btn-crop-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(31, 107, 184, 0.4);
+  color: white;
+}
+
+/* ── MUNICIPAL PERSONAL INFORMATION SECTION ── */
+.municipal-profile-info-section {
+  border-left: 3px solid #1f6bb8;
+  margin: 24px 32px;
+}
+
+.municipal-profile-info-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin-bottom: 6px;
+  padding-left: 16px;
+}
+
+.municipal-profile-info-header i {
+  font-size: 16px;
+  color: #1f6bb8;
+}
+
+.municipal-profile-info-row {
+  display: grid;
+  grid-template-columns: 120px auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f2f8;
+  transition: background 0.15s;
+}
+
+.municipal-profile-info-row:hover {
+  background: #f8faff;
+}
+.municipal-profile-info-row:last-of-type {
+  border-bottom: none;
+}
+
+.municipal-profile-info-key {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.municipal-profile-info-val {
+  font-size: 13.5px;
+  color: #1a1f36;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.municipal-profile-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+}
+
+.municipal-profile-info-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px 32px 28px;
+}
+
+.municipal-btn-edit-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1f6bb8 0%, #3498db 100%);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(31, 107, 184, 0.25);
+}
+
+.municipal-btn-edit-profile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(31, 107, 184, 0.4);
+  color: white;
+}
+
+.municipal-btn-change-password {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #1f6bb8;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: 1.5px solid #bfe7ff;
+  transition: all 0.3s ease;
+}
+
+.municipal-btn-change-password:hover {
+  background: #f8faff;
+  border-color: #85d4ff;
+  transform: translateY(-2px);
+  color: #1047a0;
+}
+
+/* ── Password field styles (shared by modal) ── */
+.municipal-pwd-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.municipal-pwd-input {
+  padding-right: 42px !important;
+  width: 100%;
+}
+.municipal-pwd-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8899b3;
+  font-size: 14px;
+  padding: 4px;
+}
+.municipal-pwd-toggle:hover {
+  color: #1f6bb8;
+}
+
+.municipal-pwd-strength {
+  display: none;
+  margin-top: 8px;
+}
+.municipal-pwd-strength-bar {
+  height: 4px;
+  border-radius: 4px;
+  background: #eef1f7;
+  overflow: hidden;
+}
+.municipal-pwd-strength-fill {
+  height: 100%;
+  width: 0%;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
+}
+.municipal-pwd-strength.weak .municipal-pwd-strength-fill {
+  width: 25%;
+  background: #f04438;
+}
+.municipal-pwd-strength.fair .municipal-pwd-strength-fill {
+  width: 50%;
+  background: #f79009;
+}
+.municipal-pwd-strength.good .municipal-pwd-strength-fill {
+  width: 75%;
+  background: #2e90fa;
+}
+.municipal-pwd-strength.strong .municipal-pwd-strength-fill {
+  width: 100%;
+  background: #12b76a;
+}
+.municipal-pwd-strength-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #64748b;
+}
+
+.municipal-pwd-hint {
+  font-size: 11.5px;
+  color: #8899b3;
+  margin: 6px 0 0;
+}
+
+.municipal-pwd-field-error {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #f04438;
+  margin-top: 6px;
+}
+.municipal-pwd-field-error.show {
+  display: flex;
+}
+.municipal-pwd-warn-icon {
+  font-size: 11px;
+}
+.municipal-input-invalid {
+  border-color: #f04438 !important;
+}
+
+@media (max-width: 900px) {
+  .municipal-profile-stats-row {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .municipal-profile-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .municipal-profile-stats-row {
+    width: 100%;
+  }
+  .municipal-profile-stat-item {
+    flex: 1;
+    padding: 12px 10px;
+    min-width: unset;
+  }
+  .municipal-profile-info-section {
+    margin: 20px;
+  }
+  .municipal-profile-info-actions {
+    flex-direction: column;
+    padding: 16px 20px 24px;
+  }
+  .municipal-btn-edit-profile,
+  .municipal-btn-change-password {
+    justify-content: center;
+  }
+}
+
+/* ── Residents Municipal — BMI Status Badge ── */
+.municipal-bmi-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.municipal-bmi-normal {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.municipal-bmi-underweight {
+  background: #cffafe;
+  color: #0891b2;
+}
+.municipal-bmi-overweight {
+  background: #fef3c7;
+  color: #d97706;
+}
+.municipal-bmi-obese {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ── Barangay Management — Export PDF Button ── */
+.municipal-btn-export {
+  background: #2c3e50;
+  color: #fff;
+  border: 1.5px solid #2c3e50;
+  margin-right: 10px;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.municipal-btn-export:hover {
+  background: #1a252f;
+  border-color: #1a252f;
+  transform: translateY(-1px);
+}
+.municipal-btn-export:active {
+  transform: translateY(0);
+}
+
+/* Municipal Program Feed Styles */
+.municipal-program-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.municipal-program-post {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.municipal-program-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.municipal-program-post-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.municipal-program-post-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.municipal-program-post-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0;
+}
+
+.municipal-program-post-desc {
+  font-size: 13.5px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.municipal-program-post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: #64748b;
+  padding-top: 10px;
+  border-top: 1px solid #f0f2f8;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.municipal-program-post-tags,
+.municipal-program-post-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.municipal-badge-priority-high {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.municipal-badge-priority-medium {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.municipal-badge-priority-low {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+/* Program feed filter empty state */
+.program-empty-filter {
+  text-align: center;
+  padding: 40px;
+}

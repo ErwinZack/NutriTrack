@@ -1,0 +1,10 @@
+bmi,expected_status
+16.5,Underweight
+18.9,Normal
+22.5,Normal
+26.7,Overweight
+32.3,Obese
+17.2,Underweight
+24.1,Normal
+28.5,Overweight
+35.8,Obese

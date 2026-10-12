@@ -1,0 +1,353 @@
+/* =============================================
+   mfa.css — NutriTrack MFA / Email OTP Page
+   Matches login_health_worker.css wavy style
+   Place in: assets/css/mfa.css
+============================================= */
+
+/* ------------------------------------------
+   PAGE LAYOUT
+------------------------------------------ */
+.mfa-verify-body {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f5f7fb;
+}
+
+.mfa-vector-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    transform: scaleY(-1);
+    background: linear-gradient(0deg, rgba(42, 82, 152, 0.2), rgba(42, 82, 152, 0.2)), #4272C9;
+    opacity: 0.9;
+    object-fit: cover;
+}
+
+/* ------------------------------------------
+   CONTAINER & WRAPPER
+------------------------------------------ */
+.mfa-wrapper-verify {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* ------------------------------------------
+   MFA CARD
+------------------------------------------ */
+.mfa-card {
+    background: #ffffff;
+    width: 440px;
+    max-width: 100%;
+    padding: 40px 36px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    position: relative;
+}
+
+/* ------------------------------------------
+   LOGO / ICON CIRCLE
+------------------------------------------ */
+.mfa-verify-logo {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--mfa-color, #2563eb), var(--mfa-color-dark, #1a5794));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 8px 20px rgba(66, 114, 201, 0.4);
+}
+
+.mfa-verify-icon {
+    font-size: 32px;
+}
+
+/* ------------------------------------------
+   TYPOGRAPHY
+------------------------------------------ */
+.mfa-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.mfa-card p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.mfa-card p strong {
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+/* ------------------------------------------
+   ALERT MESSAGES
+------------------------------------------ */
+.mfa-alert-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    pointer-events: none;
+}
+
+.mfa-alert-error svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.mfa-alert-error.active {
+    min-height: 16px;
+    margin-top: -19px;
+    margin-bottom: 6px;
+    animation: slideInFade 0.4s ease-out forwards, fadeCollapse 2s ease-in-out 1s forwards;
+}
+
+/* Always reserves space — no layout shift */
+.mfa-alert-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #16a34a;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    pointer-events: none;
+}
+
+.mfa-alert-success svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* Only animates when message is present */
+.mfa-alert-success.active {
+    min-height: 16px;
+    margin-top: -19px;
+    margin-bottom: 6px;
+    animation: slideInFade 0.4s ease-out forwards, fadeCollapse 2s ease-in-out 1s forwards;
+}
+
+.mfa-alert-info {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    margin-top: 16px;
+    border-left: 4px solid #3b82f6;
+    line-height: 1.6;
+}
+
+.mfa-alert-info i {
+    margin-right: 6px;
+}
+
+/* ------------------------------------------
+   CODE INPUT LABEL
+------------------------------------------ */
+.mfa-code-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ------------------------------------------
+   6-DIGIT CODE INPUT ROW
+------------------------------------------ */
+.mfa-code-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.mfa-code-input {
+    width: 50px;
+    height: 56px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    background: #f9fafb;
+    caret-color: var(--mfa-color, #2563eb);
+    font-family: 'Poppins', sans-serif;
+}
+
+.mfa-code-input:focus {
+    border-color: var(--mfa-color, #2563eb);
+    box-shadow: 0 0 0 3px rgba(47, 111, 214, 0.18);
+    background: #ffffff;
+}
+
+/* ------------------------------------------
+   COUNTDOWN HINT
+------------------------------------------ */
+.mfa-code-hint {
+    display: block;
+    font-size: 12.5px;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 6px;
+}
+
+/* ------------------------------------------
+   BUTTONS
+------------------------------------------ */
+.mfa-btn-primary {
+    background: linear-gradient(135deg, #2f6fd6, #4272C9);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(47, 111, 214, 0.35);
+    letter-spacing: 0.3px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mfa-btn-primary:hover {
+    background: linear-gradient(135deg, #245bb3, #3562b5);
+    box-shadow: 0 6px 18px rgba(47, 111, 214, 0.45);
+    transform: translateY(-1px);
+}
+
+.mfa-btn-primary:active {
+    transform: translateY(0);
+}
+
+.mfa-btn-link {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mfa-btn-link:hover {
+    color: #1a5794;
+    text-decoration: underline;
+}
+
+.mfa-btn-secondary {
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mfa-btn-secondary:hover {
+    color: #1a1a2e;
+}
+
+/* ------------------------------------------
+   RESEND LINK WITH SVG
+------------------------------------------ */
+.mfa-resend-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.mfa-resend-link svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------
+   DIVIDER
+------------------------------------------ */
+.mfa-divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 16px 0;
+}
+
+.mfa-back-link {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+/* ------------------------------------------
+   ANIMATIONS
+------------------------------------------ */
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeCollapse {
+    0%   { opacity: 1; }
+    70%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* ------------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 480px) {
+    .mfa-card {
+        padding: 30px 20px;
+    }
+
+    .mfa-code-input {
+        width: 42px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .mfa-code-inputs {
+        gap: 7px;
+    }
+}

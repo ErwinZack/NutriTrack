@@ -1,0 +1,29 @@
+{
+  "accuracy": 100.0,
+  "training_samples": 85,
+  "test_samples": 17,
+  "features": [
+    "bmi"
+  ],
+  "categories": [
+    "Normal",
+    "Obese",
+    "Overweight",
+    "Underweight"
+  ],
+  "algorithm": "RandomForestClassifier",
+  "n_estimators": 100,
+  "version": "1.0",
+  "trained_date": "2026-03-11 21:13:50",
+  "validation": {
+    "bmi_min": 10.0,
+    "bmi_max": 60.0,
+    "valid_statuses": [
+      "Overweight",
+      "Normal",
+      "Underweight",
+      "Obese"
+    ],
+    "min_samples": 10
+  }
+}

@@ -1,0 +1,524 @@
+/* ============================================================
+   NOTIFICATIONS — Bell Dropdown + Page Styles
+   Shared by both admin and health worker roles
+   ============================================================ */
+
+/* Bell Wrapper */
+.notif-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Bell Button */
+.notif-btn {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #f0f4fa;
+    border: 1px solid #e8edf5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.notif-btn:hover {
+    background: #e4ecf7;
+}
+
+.notif-btn.active {
+    background: #eff4ff;
+    border-color: #c7d9ff;
+}
+
+.notif-btn.active svg {
+    stroke: #2563eb;
+}
+
+.notif-btn svg {
+    width: 17px;
+    height: 17px;
+    stroke: #4a5568;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.15s;
+}
+
+/* Bell Count Badge */
+.notif-count-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #fff;
+    line-height: 1;
+}
+
+/* Dropdown Panel */
+.notif-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #e8edf5;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.notif-dropdown.open {
+    display: block;
+}
+
+.notif-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 16px 11px;
+    border-bottom: 1px solid #eef1f7;
+}
+
+.notif-dropdown-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1f36;
+}
+
+.notif-unread-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: #fef2f2;
+    color: #dc2626;
+    display: none;
+}
+
+/* Bell Dropdown Item Wrapper */
+.notif-item-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f5f7fb;
+    transition: background 0.12s;
+}
+
+.notif-item-wrap:last-of-type {
+    border-bottom: none;
+}
+
+/* Hover + unread on the FULL row via wrapper */
+.notif-item-wrap:hover {
+    background: #f8faff;
+}
+
+.notif-item-wrap.unread {
+    background: #f0f6ff;
+}
+
+.notif-item-wrap.unread:hover {
+    background: #e8f0fe;
+}
+
+/* Anchor fills the row — no own background */
+.notif-item-wrap .notif-item {
+    flex: 1;
+    border-bottom: none;
+    background: transparent !important;
+}
+
+/* Right side in dropdown — stacks 3-dot + read dot */
+.notif-item-wrap .notif-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding-right: 10px;
+    min-width: 30px;
+}
+
+/* Hide 3-dot by default in dropdown, show on hover */
+.notif-item-wrap .notif-menu-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.notif-item-wrap:hover .notif-menu-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Dropdown Notification Item */
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 16px;
+    transition: background 0.12s;
+}
+
+.notif-item.read {
+    border-left: 3px solid transparent;
+}
+
+a.notif-item {
+    display: flex;
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: pointer;
+}
+
+/* Unread / Read Dot Indicator */
+.notif-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2563eb;
+    flex-shrink: 0;
+}
+
+.notif-indicator.read {
+    background: transparent;
+    border: 1.5px solid #cbd5e1;
+}
+
+/* Dropdown Item Text */
+.notif-item-text {
+    font-size: 12.5px;
+    color: #1a1f36;
+    line-height: 1.45;
+    flex: 1;
+}
+
+.notif-item-time {
+    font-size: 10.5px;
+    color: #8899b3;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Empty State */
+.notif-empty {
+    padding: 28px 16px;
+    text-align: center;
+    color: #8899b3;
+    font-size: 12.5px;
+}
+
+.notif-empty-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
+    opacity: 0.5;
+}
+
+/* Loading State */
+.notif-loading {
+    padding: 20px 16px;
+    text-align: center;
+    color: #8899b3;
+    font-size: 12px;
+}
+
+/* View All Footer Link */
+.notif-view-all {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #2563eb;
+    border-top: 1px solid #eef1f7;
+    text-decoration: none;
+    background: #f8faff;
+    transition: background 0.15s;
+}
+
+.notif-view-all:hover {
+    background: #eff4ff;
+}
+
+/* ============================================================
+   NOTIFICATIONS PAGE — Tabs, List, Items
+   ============================================================ */
+
+/* Filter Tabs */
+.notif-page-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f2f8;
+    padding-bottom: 0;
+}
+
+.notif-page-tab {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.notif-page-tab:hover {
+    color: #2563eb;
+}
+
+.notif-page-tab.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+    font-weight: 600;
+}
+
+.notif-page-tab-badge {
+    background: #f0f2f8;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 20px;
+}
+
+.notif-page-tab-badge.unread {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* Notifications List */
+.notif-page-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Notification Page Item */
+.notif-page-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #f0f2f8;
+    transition: background 0.15s;
+    position: relative;
+}
+
+.notif-page-item.unread {
+    background: #f0f6ff;
+    border-color: #dbeafe;
+}
+
+.notif-page-item.read {
+    background: #fff;
+}
+
+.notif-page-item:hover {
+    background: #f8faff;
+}
+
+/* Sender Avatar — Real Profile Photo */
+.notif-sender-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Sender Avatar — Initials Circle */
+.notif-sender-initials {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Sender Avatar — Bell Fallback */
+.notif-avatar-fallback {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f0f4fa;
+    border: 1px solid #e8edf5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+/* Item Content */
+.notif-page-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.notif-page-item-message {
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.notif-page-item-time {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Empty State */
+.notif-page-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.notif-page-empty .notif-empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+/* ============================================================
+   3-DOT MENU — Per notification item (page + dropdown)
+   ============================================================ */
+
+/* Right side wrapper — holds 3-dot + unread dot */
+.notif-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    min-width: 30px;
+}
+
+/* 3-dot Menu Wrapper */
+.notif-menu-wrap {
+    position: relative;
+}
+
+/* 3-dot Button */
+.notif-menu-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    opacity: 0;
+    transition: background 0.15s, opacity 0.2s;
+    flex-shrink: 0;
+}
+
+/* Show on hover — notifications page */
+.notif-page-item:hover .notif-menu-btn {
+    opacity: 1;
+}
+
+.notif-menu-btn:hover {
+    background: #e2e8f0;
+}
+
+/* 3 dots */
+.notif-menu-btn .ndot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #64748b;
+}
+
+/* 3-dot Dropdown */
+.notif-menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 34px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e8edf5;
+    z-index: 100;
+    min-width: 190px;
+    overflow: hidden;
+}
+
+.notif-menu-dropdown.open {
+    display: block;
+}
+
+/* Dropdown Item */
+.notif-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #1e293b;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    transition: background 0.12s;
+    font-family: inherit;
+}
+
+.notif-menu-item:hover {
+    background: #f8faff;
+}
+
+/* Delete Item */
+.notif-menu-item.danger {
+    color: #dc2626;
+}
+
+.notif-menu-item.danger:hover {
+    background: #fef2f2;
+}
+
+.notif-menu-item i {
+    width: 16px;
+    text-align: center;
+    font-size: 13px;
+}

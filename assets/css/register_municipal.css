@@ -1,0 +1,75 @@
+/* Register Municipal — overrides for login_municipal.css */
+
+.login-box {
+    height: auto !important;
+    min-height: 520px;
+}
+
+.step-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.step-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d5d9e0;
+    transition: background 0.2s;
+}
+
+.step-dots span.active {
+    background: #4a6fdc;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.step-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.step-buttons button {
+    flex: 1;
+}
+
+.btn-back {
+    background: #e9ecf3 !important;
+    color: #444 !important;
+}
+
+.form-footer {
+    justify-content: center !important;
+}
+
+.success,
+.error {
+    display: block;
+    text-align: center;
+    margin: 15px auto 0;
+    width: fit-content;
+    max-width: 100%;
+    position: static !important;
+    left: unset !important;
+    transform: none !important;
+}
+
+#email-error {
+    margin-top: 6px;
+}
+
+
+.form-step input {
+    padding: 10px 20px !important;
+    padding-left: 42px !important;
+    /* margin-bottom: 20px !important; */
+}
